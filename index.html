@@ -323,3 +323,64 @@
 
 </body>
 </html>
+<!-- KHỐI NẠP TIỀN SHOP -->
+<section class="deposit-section" id="nap-tien" style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
+    <h2 class="section-title">HƯỚNG DẪN NẠP TIỀN</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        
+        <!-- Cột 1: Chuyển Khoản / VietQR -->
+        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem; text-align: center;">
+            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem;"> ngân hàng / vietqr</h3>
+            <!-- Thay link ảnh QR Ngân hàng của bạn vào src bên dưới -->
+            <img src="https://api.vietqr.io/image/970436-123456789-compact2.jpg?accountName=NDUY%20CUONG" alt="Mã QR Nạp Tiền" style="width: 200px; height: 200px; border-radius: 8px; border: 2px solid #22c55e; margin-bottom: 1rem;">
+            
+            <div style="text-align: left; font-size: 0.95rem; line-height: 1.8; background: #09090b; padding: 1rem; border-radius: 8px; border: 1px solid #27272a;">
+                <p><b>Ngân hàng:</b> MB Bank (Quân Đội)</p>
+                <p><b>Số tài khoản:</b> <span style="color: #22c55e; font-weight: bold;">0123456789</span></p>
+                <p><b>Chủ tài khoản:</b> NGUYEN DUY CUONG</p>
+                <p><b>Nội dung chuyển:</b> <span style="color: #ef4444; font-weight: bold;">NAP [Tên / Zalo của bạn]</span></p>
+            </div>
+        </div>
+
+        <!-- Cột 2: Ví Momo -->
+        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem; text-align: center;">
+            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem;"> VÍ MOMO</h3>
+            <!-- Thay link ảnh QR Momo của bạn vào src bên dưới -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="Mã QR Momo" style="width: 200px; height: 200px; border-radius: 8px; border: 2px solid #22c55e; margin-bottom: 1rem; background: white; padding: 5px;">
+            
+            <div style="text-align: left; font-size: 0.95rem; line-height: 1.8; background: #09090b; padding: 1rem; border-radius: 8px; border: 1px solid #27272a;">
+                <p><b>Ví điện tử:</b> MoMo</p>
+                <p><b>Số điện thoại:</b> <span style="color: #22c55e; font-weight: bold;">0987654321</span></p>
+                <p><b>Chủ tài khoản:</b> NGUYEN DUY CUONG</p>
+                <p><b>Nội dung chuyển:</b> <span style="color: #ef4444; font-weight: bold;">NAP [Tên / Zalo của bạn]</span></p>
+            </div>
+        </div>
+
+        <!-- Cột 3: Nạp Thẻ Cào Trực Tiếp -->
+        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem;">
+            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem; text-align: center;"> NẠP THẺ CÀO GIAO DỊCH</h3>
+            <form action="https://zalo.me" target="_blank" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <div>
+                    <label style="font-size: 0.85rem; color: #ffffff;">Loại thẻ:</label>
+                    <select style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
+                        <option>Viettel</option>
+                        <option>VinaPhone</option>
+                        <option>Mobifone</option>
+                        <option>Zing / Garena</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; color: #ffffff;">Mã số thẻ:</label>
+                    <input type="text" placeholder="Nhập mã thẻ..." required style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; color: #ffffff;">Số Seri:</label>
+                    <input type="text" placeholder="Nhập số seri..." required style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
+                </div>
+                <button type="submit" style="background-color: #22c55e; color: black; font-weight: bold; border: none; padding: 0.8rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem;">GỬI MÃ THẺ NẠP</button>
+            </form>
+        </div>
+
+    </div>
+</section>
