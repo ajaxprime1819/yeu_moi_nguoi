@@ -239,4 +239,209 @@
     </script>
 
 </body>
+</html><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUẢN LÝ TÍNH NĂNG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --primary: #22c55e;
+            --bg-dark: #09090b;
+            --card-bg: #18181b;
+            --border: #27272a;
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        /* 1. Màn hình nhập Key */
+        .box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .title { color: var(--primary); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; text-align: center; }
+        .desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; text-align: center; }
+
+        input[type="password"] {
+            width: 100%; padding: 0.8rem; border-radius: 8px;
+            background: #09090b; border: 1px solid var(--border);
+            color: #fff; text-align: center; font-size: 1rem; outline: none; margin-bottom: 1rem;
+        }
+
+        .btn {
+            width: 100%; padding: 0.8rem; background: var(--primary);
+            color: #000; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+        }
+
+        /* 2. Màn hình Bật/Tắt tính năng */
+        .dashboard { display: none; }
+
+        .feature-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-info h4 { font-size: 1rem; color: #fff; }
+        .feature-info p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Nút Công Tắc (Switch Toggle) */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #3f3f46; transition: .3s; border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute; content: ""; height: 18px; width: 18px;
+            left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%;
+        }
+
+        input:checked + .slider { background-color: var(--primary); }
+        input:checked + .slider:before { transform: translateX(24px); }
+
+        .btn-logout {
+            margin-top: 1.5rem; background: transparent; color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KHỐI NHẬP KEY -->
+    <div class="box" id="gateBox">
+        <h2 class="title">🔑 NHẬP KEY KÍCH HOẠT</h2>
+        <p class="desc">Nhập Key để mở bảng điều khiển tính năng</p>
+        <input type="password" id="keyInput" placeholder="Nhập Key tại đây...">
+        <button class="btn" onclick="checkKey()">XÁC NHẬN</button>
+        <p id="msg" style="color: #ef4444; font-size: 0.85rem; text-align: center; margin-top: 0.8rem; display: none;"></p>
+    </div>
+
+    <!-- BẢNG ĐIỀU KHIỂN BẬT/TẮT TÍNH NĂNG -->
+    <div class="box dashboard" id="dashBox">
+        <h2 class="title">⚡ BẢNG QUẢN LÝ TÍNH NĂNG</h2>
+        <p class="desc">Bật hoặc tắt các chức năng theo ý muốn</p>
+
+        <!-- Tính năng 1 -->
+        <div class="feature-item">
+            <div class="feature-info">
+                <h4>Chế độ Dark Mode nâng cao</h4>
+                <p>Tối ưu giao diện cho mắt vào ban đêm</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="feature1" onchange="toggleFeature('feature1')">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Tính năng 2 -->
+        <div class="feature-item">
+            <div class="feature-info">
+                <h4>Tự động phát nhạc nền</h4>
+                <p>Phát nhạc phát ngẫu nhiên khi vào trang</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="feature2" onchange="toggleFeature('feature2')">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Tính năng 3 -->
+        <div class="feature-item">
+            <div class="feature-info">
+                <h4>Thông báo ưu đãi VIP</h4>
+                <p>Nhận thông báo khi có nick game giá rẻ</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="feature3" onchange="toggleFeature('feature3')">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <button class="btn btn-logout" onclick="logout()">🔒 ĐÓNG & THOÁT</button>
+    </div>
+
+    <script>
+        const MY_KEY = "KINGCUONG2026";
+
+        // Tự động kiểm tra trạng thái đăng nhập & trạng thái các nút bật/tắt
+        window.onload = function() {
+            if (localStorage.getItem("isLoggedIn") === "true") {
+                showDashboard();
+            }
+        };
+
+        function checkKey() {
+            const val = document.getElementById("keyInput").value.trim();
+            const msg = document.getElementById("msg");
+
+            if (val === MY_KEY) {
+                localStorage.setItem("isLoggedIn", "true");
+                showDashboard();
+            } else {
+                msg.style.display = "block";
+                msg.innerText = "⚠️ Key không chính xác!";
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById("gateBox").style.display = "none";
+            document.getElementById("dashBox").style.display = "block";
+
+            // Tải lại trạng thái Bật/Tắt đã lưu trước đó
+            loadToggleState("feature1");
+            loadToggleState("feature2");
+            loadToggleState("feature3");
+        }
+
+        // Lưu trạng thái Bật / Tắt khi người dùng gạt công tắc
+        function toggleFeature(id) {
+            const isChecked = document.getElementById(id).checked;
+            localStorage.setItem(id, isChecked);
+            console.log(`Tính năng ${id} hiện tại:`, isChecked ? "BẬT" : "TẮT");
+        }
+
+        function loadToggleState(id) {
+            const savedState = localStorage.getItem(id);
+            if (savedState !== null) {
+                document.getElementById(id).checked = (savedState === "true");
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            location.reload();
+        }
+    </script>
+</body>
 </html>
