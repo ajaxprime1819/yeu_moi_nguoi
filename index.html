@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOP ACC GAME UY TÍN - GIÁ RẺ</title>
+    <title>Trang Cá Nhân | Nguyễn Duy Cường</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Reset & Setup Màu Nền Đen - Xanh Lá */
         * {
             margin: 0;
             padding: 0;
@@ -20,367 +19,205 @@
         }
 
         :root {
-            --primary-color: #22c55e;    /* Xanh lá cây neon */
-            --primary-hover: #16a34a;    /* Xanh lá đậm */
+            --primary-color: #22c55e;    /* Màu xanh lá cây nhấn */
+            --bg-dark: #09090b;          /* Nền đen */
+            --card-bg: #18181b;          /* Khối nội dung màu tối */
+            --border-color: #27272a;     /* Viền xám tối */
             --text-main: #ffffff;        /* Chữ màu trắng */
-            --text-muted: #ffffff;       /* Chữ phụ màu trắng */
-            --bg-dark: #09090b;          /* Nền đen tối */
-            --card-bg: #18181b;          /* Nền thẻ card */
-            --border-color: #27272a;     /* Viền tối */
-            --price-color: #ef4444;      /* Màu đỏ cho giá tiền */
+            --text-muted: #a1a1aa;       /* Chữ màu xám nhạt */
         }
 
         body {
-            color: var(--text-main);
             background-color: var(--bg-dark);
-            line-height: 1.6;
-        }
-
-        /* Header Navigation */
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
             color: var(--text-main);
-            font-weight: 600;
-            transition: color 0.2s;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
+        /* Container chính */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            width: 100%;
         }
 
-        /* Hero Banner */
-        .hero {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
+        /* Header / Avatar Section */
+        .profile-header {
             text-align: center;
+            margin-bottom: 3rem;
+            margin-top: 1rem;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            object-fit: cover;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .profile-header h1 {
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .profile-header .tagline {
             color: var(--primary-color);
-            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .profile-header p {
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2rem auto;
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 0.95rem;
         }
 
-        /* Danh Mục Sản Phẩm (Shop Acc) */
-        .shop-container {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
+        /* Khối Nội Dung / Giới Thiệu */
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
             border-left: 4px solid var(--primary-color);
             padding-left: 10px;
             text-transform: uppercase;
         }
 
-        .grid-acc {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Thẻ Acc Game */
-        .acc-card {
+        .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.2s, border-color 0.2s;
-            display: flex;
-            flex-direction: column;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
-        .acc-card:hover {
-            transform: translateY(-5px);
+        /* Kỹ Năng / Sở Thích */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: #09090b;
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: border-color 0.2s;
+        }
+
+        .skill-item:hover {
             border-color: var(--primary-color);
         }
 
-        .acc-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .acc-body {
-            padding: 1.2rem;
+        /* Danh Sách Mạng Xã Hội (Social Links) */
+        .links-container {
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .acc-code {
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .acc-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
-        }
-
-        .acc-info {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-        }
-
-        .acc-info li {
-            margin-bottom: 0.3rem;
-        }
-
-        .acc-footer {
-            margin-top: auto;
+        .link-btn {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .acc-price {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--price-color);
-        }
-
-        .btn-buy {
-            background-color: var(--primary-color);
-            color: #000000;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            justify-content: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 1rem;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: background-color 0.2s, transform 0.2s;
+            font-size: 1rem;
+            transition: all 0.2s ease;
         }
 
-        .btn-buy:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.05);
+        .link-btn:hover {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: #000000;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
             text-align: center;
             padding: 2rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Logo -->
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo">KING CUONG GAME</a>
-            <ul class="nav-links">
-                <li><a href="#danh-sach">Danh Sách Acc</a></li>
-                <li><a href="#uy-tin">Chính Sách</a></li>
-                <li><a href="#lien-he">Liên Hệ Zalo</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        
+        <!-- Ảnh đại diện & Tên -->
+        <header class="profile-header">
+            <!-- Thay link ảnh đại diện của bạn vào src bên dưới -->
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80" alt="Avatar" class="avatar">
+            <h1>NGUYỄN DUY CƯỜNG</h1>
+            <div class="tagline">Gamer & Web Developer</div>
+            <p>Chào mừng bạn đến với trang cá nhân của mình! Nơi chia sẻ về thông tin, dự án và mạng xã hội cá nhân.</p>
+        </header>
 
-    <!-- Banner chính -->
-    <main>
-        <section class="hero">
-            <h1>SHOP ACC GAME GIÁ RẺ - UY TÍN 100%</h1>
-            <p>Hệ thống bán acc tự động, giao dịch nhanh chóng, bảo hành trọn đời cho anh em game thủ!</p>
-        </section>
+        <!-- Về Bản Thân -->
+        <h2 class="section-title">GIỚI THIỆU</h2>
+        <div class="card">
+            <p style="color: var(--text-muted);">
+                Xin chào, mình là Cường. Mình yêu thích công nghệ, lập trình web và chơi game giải trí lúc rảnh rỗi. Rất vui được kết nối với mọi người!
+            </p>
+        </div>
 
-        <!-- Danh sách Acc Game -->
-        <section class="shop-container" id="danh-sach">
-            <h2 class="section-title">NICK GAME NỔI BẬT</h2>
-            
-            <div class="grid-acc">
-                
-                <!-- ACC 1 -->
-                <div class="acc-card">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Acc Liên Quân" class="acc-img">
-                    <div class="acc-body">
-                        <span class="acc-code">MÃ ACC: #LQ01</span>
-                        <h3 class="acc-title">Acc Liên Quân Full Tướng - Ngộ Không EVO</h3>
-                        <ul class="acc-info">
-                            <li>• Tướng: 115/115</li>
-                            <li>• Trang phục: 250 SSS</li>
-                            <li>• Xếp hạng: Cao Thủ 50 Sao</li>
-                        </ul>
-                        <div class="acc-footer">
-                            <span class="acc-price">350.000đ</span>
-                            <!-- Thay link Zalo hoặc link thanh toán của bạn ở href bên dưới -->
-                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ACC 2 -->
-                <div class="acc-card">
-                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Acc Roblox" class="acc-img">
-                    <div class="acc-body">
-                        <span class="acc-code">MÃ ACC: #RB02</span>
-                        <h3 class="acc-title">Acc Blox Fruit Max Level - Mecha V4</h3>
-                        <ul class="acc-info">
-                            <li>• Level: Max 2550</li>
-                            <li>• Trái Mochi Awaken Full Skill</li>
-                            <li>• Có Cực Nhiều Tiền Beli</li>
-                        </ul>
-                        <div class="acc-footer">
-                            <span class="acc-price">180.000đ</span>
-                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ACC 3 -->
-                <div class="acc-card">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Acc Free Fire" class="acc-img">
-                    <div class="acc-body">
-                        <span class="acc-code">MÃ ACC: #FF03</span>
-                        <h3 class="acc-title">Acc Free Fire Cực VIP - AK Rồng Xanh Max</h3>
-                        <ul class="acc-info">
-                            <li>• Súng Đột Phá: AK Rồng Max LV</li>
-                            <li>• Rank: Huyền Thoại</li>
-                            <li>• Đăng ký: Facebook chính chủ</li>
-                        </ul>
-                        <div class="acc-footer">
-                            <span class="acc-price">500.000đ</span>
-                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Sở Thích / Kỹ Năng -->
+        <h2 class="section-title">SỞ THÍCH & KỸ NĂNG</h2>
+        <div class="card">
+            <div class="skills-grid">
+                <div class="skill-item">🎮 Chơi Game</div>
+                <div class="skill-item">💻 Lập Trình Web</div>
+                <div class="skill-item">🎵 Nghe Nhạc</div>
+                <div class="skill-item">🎬 Xem Phim</div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <!-- Chân trang -->
-    <footer id="lien-he">
-        <p>&copy; 2026 KING CUONG GAME. Uy Tín Tạo Nên Thương Hiệu.</p>
-        <p style="margin-top: 0.5rem;">Hỗ Trợ Nhanh Qua Zalo / Facebook</p>
+        <!-- Các Đường Link Mạng Xã Hội -->
+        <h2 class="section-title">LIÊN HỆ / MẠNG XÃ HỘI</h2>
+        <div class="links-container">
+            <!-- Thay đường link Facebook cá nhân của bạn -->
+            <a href="https://facebook.com" target="_blank" class="link-btn">📘 Facebook Cá Nhân</a>
+            
+            <!-- Thay đường link Zalo -->
+            <a href="https://zalo.me" target="_blank" class="link-btn">💬 Nhắn Tin Zalo</a>
+            
+            <!-- Thay đường link TikTok -->
+            <a href="https://tiktok.com" target="_blank" class="link-btn">🎵 Kênh TikTok</a>
+            
+            <!-- Link gửi Email -->
+            <a href="mailto:example@gmail.com" class="link-btn">✉️ Gửi Email Cho Tôi</a>
+        </div>
+
+    </div>
+
+    <!-- Footter -->
+    <footer>
+        <p>&copy; 2026 Nguyễn Duy Cường. All rights reserved.</p>
     </footer>
 
 </body>
 </html>
-<!-- KHỐI NẠP TIỀN SHOP -->
-<section class="deposit-section" id="nap-tien" style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
-    <h2 class="section-title">HƯỚNG DẪN NẠP TIỀN</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        
-        <!-- Cột 1: Chuyển Khoản / VietQR -->
-        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem; text-align: center;">
-            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem;"> ngân hàng / vietqr</h3>
-            <!-- Thay link ảnh QR Ngân hàng của bạn vào src bên dưới -->
-            <img src="https://api.vietqr.io/image/970436-123456789-compact2.jpg?accountName=NDUY%20CUONG" alt="Mã QR Nạp Tiền" style="width: 200px; height: 200px; border-radius: 8px; border: 2px solid #22c55e; margin-bottom: 1rem;">
-            
-            <div style="text-align: left; font-size: 0.95rem; line-height: 1.8; background: #09090b; padding: 1rem; border-radius: 8px; border: 1px solid #27272a;">
-                <p><b>Ngân hàng:</b> MB Bank (Quân Đội)</p>
-                <p><b>Số tài khoản:</b> <span style="color: #22c55e; font-weight: bold;">0123456789</span></p>
-                <p><b>Chủ tài khoản:</b> NGUYEN DUY CUONG</p>
-                <p><b>Nội dung chuyển:</b> <span style="color: #ef4444; font-weight: bold;">NAP [Tên / Zalo của bạn]</span></p>
-            </div>
-        </div>
-
-        <!-- Cột 2: Ví Momo -->
-        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem; text-align: center;">
-            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem;"> VÍ MOMO</h3>
-            <!-- Thay link ảnh QR Momo của bạn vào src bên dưới -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="Mã QR Momo" style="width: 200px; height: 200px; border-radius: 8px; border: 2px solid #22c55e; margin-bottom: 1rem; background: white; padding: 5px;">
-            
-            <div style="text-align: left; font-size: 0.95rem; line-height: 1.8; background: #09090b; padding: 1rem; border-radius: 8px; border: 1px solid #27272a;">
-                <p><b>Ví điện tử:</b> MoMo</p>
-                <p><b>Số điện thoại:</b> <span style="color: #22c55e; font-weight: bold;">0987654321</span></p>
-                <p><b>Chủ tài khoản:</b> NGUYEN DUY CUONG</p>
-                <p><b>Nội dung chuyển:</b> <span style="color: #ef4444; font-weight: bold;">NAP [Tên / Zalo của bạn]</span></p>
-            </div>
-        </div>
-
-        <!-- Cột 3: Nạp Thẻ Cào Trực Tiếp -->
-        <div style="background-color: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1.5rem;">
-            <h3 style="color: #22c55e; margin-bottom: 1rem; font-size: 1.2rem; text-align: center;"> NẠP THẺ CÀO GIAO DỊCH</h3>
-            <form action="https://zalo.me" target="_blank" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                <div>
-                    <label style="font-size: 0.85rem; color: #ffffff;">Loại thẻ:</label>
-                    <select style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
-                        <option>Viettel</option>
-                        <option>VinaPhone</option>
-                        <option>Mobifone</option>
-                        <option>Zing / Garena</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-size: 0.85rem; color: #ffffff;">Mã số thẻ:</label>
-                    <input type="text" placeholder="Nhập mã thẻ..." required style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
-                </div>
-                <div>
-                    <label style="font-size: 0.85rem; color: #ffffff;">Số Seri:</label>
-                    <input type="text" placeholder="Nhập số seri..." required style="width: 100%; padding: 0.6rem; border-radius: 6px; background: #09090b; color: white; border: 1px solid #27272a; margin-top: 4px;">
-                </div>
-                <button type="submit" style="background-color: #22c55e; color: black; font-weight: bold; border: none; padding: 0.8rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem;">GỬI MÃ THẺ NẠP</button>
-            </form>
-        </div>
-
-    </div>
-</section>
