@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ | Website Của Tôi</title>
+    <title>SHOP ACC GAME UY TÍN - GIÁ RẺ</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-   <style>
-        /* CSS Reset & Variable Setup - Tone Đen & Xanh Lá */
+    <style>
+        /* Reset & Setup Màu Nền Đen - Xanh Lá */
         * {
             margin: 0;
             padding: 0;
@@ -20,18 +20,19 @@
         }
 
         :root {
-            --primary-color: #22c55e;    /* Màu xanh lá cây nổi bật cho Logo, Nút bấm, Tiêu đề */
-            --primary-hover: #16a34a;    /* Màu xanh lá đậm hơn khi rê chuột vào */
-            --text-main: #ffffff;        /* Chữ chính màu trắng */
-            --text-muted: #ffffff;       /* Chữ phụ màu trắng theo ý bạn */
-            --bg-light: #09090b;         /* Nền tổng thể màu đen tối */
-            --card-bg: #18181b;          /* Nền thẻ card & Header màu đen xám */
-            --border-color: #27272a;     /* Đường viền xám đen nhạt */
+            --primary-color: #22c55e;    /* Xanh lá cây neon */
+            --primary-hover: #16a34a;    /* Xanh lá đậm */
+            --text-main: #ffffff;        /* Chữ màu trắng */
+            --text-muted: #ffffff;       /* Chữ phụ màu trắng */
+            --bg-dark: #09090b;          /* Nền đen tối */
+            --card-bg: #18181b;          /* Nền thẻ card */
+            --border-color: #27272a;     /* Viền tối */
+            --price-color: #ef4444;      /* Màu đỏ cho giá tiền */
         }
 
         body {
             color: var(--text-main);
-            background-color: var(--bg-light);
+            background-color: var(--bg-dark);
             line-height: 1.6;
         }
 
@@ -55,9 +56,11 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color); /* Logo xanh lá */
+            font-weight: 800;
+            color: var(--primary-color);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -69,83 +72,144 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color); /* Đổi màu xanh lá khi di chuột */
+            color: var(--primary-color);
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero {
             max-width: 1200px;
-            margin: 4rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color); /* Tiêu đề lớn màu xanh lá nổi bật */
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 2rem auto;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #000000; /* Chữ màu đen trên nút xanh lá cho dễ đọc */
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Features Section */
-        .features {
+        /* Danh Mục Sản Phẩm (Shop Acc) */
+        .shop-container {
             max-width: 1200px;
-            margin: 6rem auto;
+            margin: 4rem auto;
             padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+
+        .grid-acc {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .card {
+        /* Thẻ Acc Game */
+        .acc-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 2rem;
             border-radius: 12px;
+            overflow: hidden;
             transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card:hover {
+        .acc-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color); /* Viền màu xanh lá khi di chuột vào card */
+            border-color: var(--primary-color);
         }
 
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary-color); /* Tiêu đề thẻ màu xanh lá */
+        .acc-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .card p {
+        .acc-body {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .acc-code {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .acc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .acc-info {
+            list-style: none;
+            font-size: 0.9rem;
             color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .acc-info li {
+            margin-bottom: 0.3rem;
+        }
+
+        .acc-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .acc-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--price-color);
+        }
+
+        .btn-buy {
+            background-color: var(--primary-color);
+            color: #000000;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -156,68 +220,106 @@
             padding: 2rem;
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-top: 4rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Thanh Điều Hướng -->
+    <!-- Header / Logo -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Meeleegood</a>
+            <a href="#" class="logo">KING CUONG GAME</a>
             <ul class="nav-links">
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#services">Dịch vụ chưa có</a></li>
-                <li><a href="#contact">Liên hệ chưa có</a></li>
+                <li><a href="#danh-sach">Danh Sách Acc</a></li>
+                <li><a href="#uy-tin">Chính Sách</a></li>
+                <li><a href="#lien-he">Liên Hệ Zalo</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Khối Nội Dung Chính (Hero Section) -->
+    <!-- Banner chính -->
     <main>
-        <section class="hero" id="home">
-            <h1>CHƯA CÓ MỤC TIÊU</h1>
-            <p>CƯỜNG DZ</p>
-            <a href="#services" class="btn">Khám Phá Ngay</a>
+        <section class="hero">
+            <h1>SHOP ACC GAME GIÁ RẺ - UY TÍN 100%</h1>
+            <p>Hệ thống bán acc tự động, giao dịch nhanh chóng, bảo hành trọn đời cho anh em game thủ!</p>
         </section>
 
-        <!-- Khối Tính Năng / Dịch Vụ -->
-        <section class="features" id="services">
-            <div class="card">
-                <h3>Thiết Kế Đẹp Mắt</h3>
-                <p>Giao diện hiện đại, đáp ứng tốt trên cả máy tính và thiết bị di động.</p>
-            </div>
-            <div class="card">
-                <h3>Tối Ưu Tốc Độ</h3>
-                <p>Mã nguồn sạch, nhẹ nhàng giúp trang web tải cực kỳ nhanh chóng.</p>
-            </div>
-            <div class="card">
-                <h3>Dễ Dàng Tùy Chỉnh</h3>
-                <p>Cấu trúc CSS biến (variables) giúp đổi màu sắc và font chữ chỉ trong 1 giây.</p>
+        <!-- Danh sách Acc Game -->
+        <section class="shop-container" id="danh-sach">
+            <h2 class="section-title">NICK GAME NỔI BẬT</h2>
+            
+            <div class="grid-acc">
+                
+                <!-- ACC 1 -->
+                <div class="acc-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Acc Liên Quân" class="acc-img">
+                    <div class="acc-body">
+                        <span class="acc-code">MÃ ACC: #LQ01</span>
+                        <h3 class="acc-title">Acc Liên Quân Full Tướng - Ngộ Không EVO</h3>
+                        <ul class="acc-info">
+                            <li>• Tướng: 115/115</li>
+                            <li>• Trang phục: 250 SSS</li>
+                            <li>• Xếp hạng: Cao Thủ 50 Sao</li>
+                        </ul>
+                        <div class="acc-footer">
+                            <span class="acc-price">350.000đ</span>
+                            <!-- Thay link Zalo hoặc link thanh toán của bạn ở href bên dưới -->
+                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACC 2 -->
+                <div class="acc-card">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Acc Roblox" class="acc-img">
+                    <div class="acc-body">
+                        <span class="acc-code">MÃ ACC: #RB02</span>
+                        <h3 class="acc-title">Acc Blox Fruit Max Level - Mecha V4</h3>
+                        <ul class="acc-info">
+                            <li>• Level: Max 2550</li>
+                            <li>• Trái Mochi Awaken Full Skill</li>
+                            <li>• Có Cực Nhiều Tiền Beli</li>
+                        </ul>
+                        <div class="acc-footer">
+                            <span class="acc-price">180.000đ</span>
+                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACC 3 -->
+                <div class="acc-card">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Acc Free Fire" class="acc-img">
+                    <div class="acc-body">
+                        <span class="acc-code">MÃ ACC: #FF03</span>
+                        <h3 class="acc-title">Acc Free Fire Cực VIP - AK Rồng Xanh Max</h3>
+                        <ul class="acc-info">
+                            <li>• Súng Đột Phá: AK Rồng Max LV</li>
+                            <li>• Rank: Huyền Thoại</li>
+                            <li>• Đăng ký: Facebook chính chủ</li>
+                        </ul>
+                        <div class="acc-footer">
+                            <span class="acc-price">500.000đ</span>
+                            <a href="https://zalo.me" target="_blank" class="btn-buy">MUA NGAY</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
 
-    <!-- Chân Trang -->
-    <footer>
-        <p>&copy; 2026 MyWebsite. Bảo lưu mọi quyền.</p>
+    <!-- Chân trang -->
+    <footer id="lien-he">
+        <p>&copy; 2026 KING CUONG GAME. Uy Tín Tạo Nên Thương Hiệu.</p>
+        <p style="margin-top: 0.5rem;">Hỗ Trợ Nhanh Qua Zalo / Facebook</p>
     </footer>
 
-    <script>
-        // JS đơn giản kiểm tra kết nối
-        console.log("Trang web đã tải thành công!");
-    </script>
 </body>
 </html>
